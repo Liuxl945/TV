@@ -1,0 +1,155 @@
+<template>
+	<div class="content" >
+		<video class="video" id="video" :src="videoSrc" @click="showModal = !showModal" @waiting="playVideo" controls="false">
+		</video>
+		
+		<scroll-view class="nav-left" :scroll-top="scrollTop" ref="list" id="scroller" v-if="showModal" scroll-y="true" >
+			<view class="list" @click="select(index)" :class="selectIndex === index? 'active' : ''" v-for="item,index in liveData" :key="index">
+				<text class="text">{{item.channelName}}</text>
+			</view>
+		</scroll-view>
+		
+		<!-- <list class="nav-left" ref="list" id="scroller" v-if="showModal" bounce="false">
+			<cell class="list" @click="select(index)" :class="selectIndex === index? 'active' : ''" v-for="item,index in liveData" :key="index">
+				<text class="text">{{item.channelName}}</text>
+			</cell>
+		</list> -->
+	</div>
+</template>
+
+<script>
+	import liveData from "./live.json"
+	
+	const INIT_INDEX = uni.getStorageSync("selectIndex") || 0
+	
+	export default {
+		data() {
+			return {
+				scrollTop:0,
+				selectIndex: INIT_INDEX,
+				videoSrc: liveData[INIT_INDEX].channelUrls[0],
+				liveData,
+				showModal: false
+			}
+		},
+		
+		created() {
+			
+			this.height = uni.getSystemInfoSync().windowHeight
+			
+			plus.key.addEventListener("keydown", res => {
+				let keyCode = res.keyCode
+				if(keyCode === 19 || keyCode === 38) {
+					// KeyUp
+					if(this.selectIndex <= 0) {
+						return
+					}
+					this.selectIndex -= 1
+					
+					if(!this.showModal) {
+						this.select(this.selectIndex)
+					}
+					
+					this.setScrollTop()
+					
+				}else if(keyCode === 20 || keyCode === 40) {
+					// KeyDown
+					if(this.selectIndex >= liveData.length - 1) {
+						return
+					}
+					this.selectIndex += 1
+					
+					if(!this.showModal) {
+						this.select(this.selectIndex)
+					}
+					
+					this.setScrollTop()
+					
+				}else if(keyCode === 21 || keyCode === 37) {
+					// KeyLeft
+				}else if(keyCode === 22 || keyCode === 39) {
+					// KeyRight
+				}else if(keyCode === 23 || keyCode === 13 || keyCode === 66) {
+					// KeyEnter
+					if(this.showModal) {
+						this.select(this.selectIndex)
+						this.showModal = false
+					}else {
+						this.showModal = true
+					}
+					
+				}else if(keyCode === 4 || keyCode === 18 || keyCode === 24|| keyCode === 27 || keyCode === 111) {
+					// KeyBack
+					this.showModal = false
+					
+				}
+			})
+		},
+		methods: {
+			setScrollTop() {
+				const LINE_HEIGHT = 26
+				const NUMBER = this.height / LINE_HEIGHT
+				
+				this.scrollTop = this.selectIndex * LINE_HEIGHT - (Math.floor(NUMBER / 2) * LINE_HEIGHT)
+			},
+			playVideo() {
+				this.videoContext = uni.createVideoContext("video", this)
+				// this.videoContext.requestFullScreen()
+				this.videoContext.play()
+			},
+			select(index) {
+				this.selectIndex = index
+				this.videoSrc = liveData[index].channelUrls[0]
+				this.showModal = false
+			}
+		},
+		watch:{
+			selectIndex(value) {
+				uni.setStorage({
+					key:"selectIndex",
+					data:value
+				})
+			},
+			showModal(value) {
+				if(value) {
+					this.setScrollTop()
+				}
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	$width: 240rpx;
+	
+	.nav-left{
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: $width;
+		bottom: 0;
+		background-color: rgba($color: blue, $alpha: .2);
+	}
+	.list{
+		width: $width;
+		height: 26;
+		align-items: center;
+		justify-content: center;
+	}
+	.active{
+		background-color: blue;
+	}
+	
+	.text{
+		font-size: 24rpx;
+		color: #FFFFFF;
+	}
+	
+	.content,.video{
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+	}
+</style>
