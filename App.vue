@@ -2,7 +2,6 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
-			plus.screen.lockOrientation("landscape-primary")
 		},
 		onShow: function() {
 			console.log('App Show')

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App'
 
 Vue.config.productionTip = false
+// plus.screen.lockOrientation("landscape-primary")
+plus.navigator.setFullscreen(true)
 
 App.mpType = 'app'
 

@@ -90,7 +90,9 @@
 				const LINE_HEIGHT = 26
 				const NUMBER = this.height / LINE_HEIGHT
 				
-				this.scrollTop = this.selectIndex * LINE_HEIGHT - (Math.floor(NUMBER / 2) * LINE_HEIGHT)
+				setTimeout(() => {
+					this.scrollTop = this.selectIndex * LINE_HEIGHT - (Math.floor(NUMBER / 2) * LINE_HEIGHT)
+				},20)
 			},
 			playVideo() {
 				this.videoContext = uni.createVideoContext("video", this)
@@ -112,7 +114,9 @@
 			},
 			showModal(value) {
 				if(value) {
-					this.setScrollTop()
+					this.$nextTick(() =>{
+						this.setScrollTop()
+					})
 				}
 			}
 		}
@@ -120,7 +124,7 @@
 </script>
 
 <style lang="scss">
-	$width: 240rpx;
+	$width: 160rpx;
 	
 	.nav-left{
 		position: fixed;
@@ -141,7 +145,7 @@
 	}
 	
 	.text{
-		font-size: 24rpx;
+		font-size: 16rpx;
 		color: #FFFFFF;
 	}
 	

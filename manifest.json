@@ -2,7 +2,7 @@
     "name" : "直播大师",
     "appid" : "__UNI__E660B70",
     "description" : "免费电视直播",
-    "versionName" : "1.0.2",
+    "versionName" : "1.0.3",
     "versionCode" : "100",
     "transformPx" : false,
     /* 5+App特有相关 */
@@ -36,7 +36,7 @@
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
                 ],
                 "autoSdkPermissions" : false,
-                "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ]
+                "abiFilters" : [ "armeabi-v7a" ]
             },
             /* ios打包配置 */
             "ios" : {},
@@ -75,6 +75,9 @@
                         "spotlight@3x" : "unpackage/res/icons/120x120.png"
                     }
                 }
+            },
+            "splashscreen" : {
+                "androidStyle" : "common"
             }
         },
         "renderer" : "native"
