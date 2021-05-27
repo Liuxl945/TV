@@ -1,6 +1,6 @@
 <template>
 	<div class="content" >
-		<video class="video" id="video" :src="videoSrc" @click="showModal = !showModal" @waiting="playVideo" controls="false">
+		<video class="video" id="video" object-fit="fill" :src="videoSrc" @click="showModal = !showModal" @waiting="playVideo" controls="false">
 		</video>
 		
 		<scroll-view class="nav-left" :scroll-top="scrollTop" ref="list" id="scroller" v-if="showModal" scroll-y="true" >
@@ -34,15 +34,23 @@
 		},
 		
 		created() {
-			
 			this.height = uni.getSystemInfoSync().windowHeight
 			
 			plus.key.addEventListener("keydown", res => {
+				this.keydownBcFunc(res)
+			})
+			
+			plus.key.addEventListener("longpressed", res => {
+				this.keydownBcFunc(res)
+			})
+		},
+		methods: {
+			keydownBcFunc(res) {
 				let keyCode = res.keyCode
 				if(keyCode === 19 || keyCode === 38) {
 					// KeyUp
 					if(this.selectIndex <= 0) {
-						return
+						this.selectIndex = liveData.length
 					}
 					this.selectIndex -= 1
 					
@@ -55,7 +63,7 @@
 				}else if(keyCode === 20 || keyCode === 40) {
 					// KeyDown
 					if(this.selectIndex >= liveData.length - 1) {
-						return
+						this.selectIndex = -1
 					}
 					this.selectIndex += 1
 					
@@ -83,9 +91,8 @@
 					this.showModal = false
 					
 				}
-			})
-		},
-		methods: {
+			},
+			
 			setScrollTop() {
 				const LINE_HEIGHT = 26
 				const NUMBER = this.height / LINE_HEIGHT
@@ -96,7 +103,7 @@
 			},
 			playVideo() {
 				this.videoContext = uni.createVideoContext("video", this)
-				// this.videoContext.requestFullScreen()
+				console.log(this.videoContext)
 				this.videoContext.play()
 			},
 			select(index) {
@@ -125,7 +132,6 @@
 
 <style lang="scss">
 	$width: 160rpx;
-	
 	.nav-left{
 		position: fixed;
 		left: 0;
