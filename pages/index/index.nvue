@@ -3,14 +3,14 @@
 		<video class="video" id="video" object-fit="fill" :src="videoSrc" @click="showModal = !showModal" @waiting="playVideo" controls="false">
 		</video>
 		
-		<scroll-view class="nav-left" :scroll-top="scrollTop" ref="list" id="scroller" v-if="showModal" scroll-y="true" >
-			<view class="list" @click="select(index)" :class="selectIndex === index? 'active' : ''" v-for="item,index in liveData" :key="index">
+		<scroll-view class="nav-left" @scroll.prevent :scroll-top="scrollTop" ref="list" id="scroller" v-if="showModal" scroll-y="true" >
+			<view class="list" @click="select(index)" :class="selectOldIndex === index? 'active' : ''" v-for="item,index in liveData" :key="index">
 				<text class="text">{{item.channelName}}</text>
 			</view>
 		</scroll-view>
 		
 		<!-- <list class="nav-left" ref="list" id="scroller" v-if="showModal" bounce="false">
-			<cell class="list" @click="select(index)" :class="selectIndex === index? 'active' : ''" v-for="item,index in liveData" :key="index">
+			<cell class="list" ref="cell" @click="select(index)" :class="selectOldIndex === index? 'active' : ''" v-for="item,index in liveData" :key="'index' +index">
 				<text class="text">{{item.channelName}}</text>
 			</cell>
 		</list> -->
@@ -21,12 +21,14 @@
 	import liveData from "./live.json"
 	
 	const INIT_INDEX = uni.getStorageSync("selectIndex") || 0
+	// const dom = uni.requireNativePlugin("dom")
 	
 	export default {
 		data() {
 			return {
 				scrollTop:0,
 				selectIndex: INIT_INDEX,
+				selectOldIndex: INIT_INDEX,
 				videoSrc: liveData[INIT_INDEX].channelUrls[0],
 				liveData,
 				showModal: false
@@ -41,6 +43,9 @@
 			})
 			
 			plus.key.addEventListener("longpressed", res => {
+				if(!this.showModal) {
+					return
+				}
 				this.keydownBcFunc(res)
 			})
 		},
@@ -49,26 +54,26 @@
 				let keyCode = res.keyCode
 				if(keyCode === 19 || keyCode === 38) {
 					// KeyUp
-					if(this.selectIndex <= 0) {
-						this.selectIndex = liveData.length
+					if(this.selectOldIndex <= 0) {
+						this.selectOldIndex = liveData.length
 					}
-					this.selectIndex -= 1
+					this.selectOldIndex -= 1
 					
 					if(!this.showModal) {
-						this.select(this.selectIndex)
+						this.select(this.selectOldIndex)
 					}
 					
 					this.setScrollTop()
 					
 				}else if(keyCode === 20 || keyCode === 40) {
 					// KeyDown
-					if(this.selectIndex >= liveData.length - 1) {
-						this.selectIndex = -1
+					if(this.selectOldIndex >= liveData.length - 1) {
+						this.selectOldIndex = -1
 					}
-					this.selectIndex += 1
+					this.selectOldIndex += 1
 					
 					if(!this.showModal) {
-						this.select(this.selectIndex)
+						this.select(this.selectOldIndex)
 					}
 					
 					this.setScrollTop()
@@ -80,7 +85,7 @@
 				}else if(keyCode === 23 || keyCode === 13 || keyCode === 66) {
 					// KeyEnter
 					if(this.showModal) {
-						this.select(this.selectIndex)
+						this.select(this.selectOldIndex)
 						this.showModal = false
 					}else {
 						this.showModal = true
@@ -89,6 +94,7 @@
 				}else if(keyCode === 4 || keyCode === 18 || keyCode === 24|| keyCode === 27 || keyCode === 111) {
 					// KeyBack
 					this.showModal = false
+					this.selectOldIndex = this.selectIndex
 					
 				}
 			},
@@ -98,7 +104,12 @@
 				const NUMBER = this.height / LINE_HEIGHT
 				
 				setTimeout(() => {
-					this.scrollTop = this.selectIndex * LINE_HEIGHT - (Math.floor(NUMBER / 2) * LINE_HEIGHT)
+					this.scrollTop = this.selectOldIndex * LINE_HEIGHT - (Math.floor(NUMBER / 2) * LINE_HEIGHT)
+					
+					// dom.scrollToElement(this.$refs.cell[10], {
+					// 	offset: 1
+					// })
+					
 				},20)
 			},
 			playVideo() {
@@ -108,6 +119,7 @@
 			},
 			select(index) {
 				this.selectIndex = index
+				this.selectOldIndex = index
 				this.videoSrc = liveData[index].channelUrls[0]
 				this.showModal = false
 			}
