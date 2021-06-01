@@ -3,6 +3,10 @@
 		<video class="video" id="video" object-fit="fill" :src="videoSrc" @click="showModal = !showModal" @waiting="playVideo" controls="false">
 		</video>
 		
+		<div class="timer">
+			<text class="timer-text">{{timer}}</text>
+		</div>
+		
 		<scroll-view class="nav-left" @scroll.prevent :scroll-top="scrollTop" ref="list" id="scroller" v-if="showModal" scroll-y="true" >
 			<view class="list" @click="select(index)" :class="selectOldIndex === index? 'active' : ''" v-for="item,index in liveData" :key="index">
 				<text class="text">{{item.channelName}}</text>
@@ -31,7 +35,8 @@
 				selectOldIndex: INIT_INDEX,
 				videoSrc: liveData[INIT_INDEX].channelUrls[0],
 				liveData,
-				showModal: false
+				showModal: false,
+				timer: Date.now()
 			}
 		},
 		
@@ -48,8 +53,38 @@
 				}
 				this.keydownBcFunc(res)
 			})
+			
+			this.timer = this.GetDateTimeToString()
+			let that = this
+			
+			function setTimeoutTimer() {
+				setTimeout(() => {
+					that.timer = that.GetDateTimeToString()
+					setTimeoutTimer()
+				},1000)
+			}
+			setTimeoutTimer()
 		},
 		methods: {
+			GetDateTimeToString() {
+				let date_ = new Date();
+				let year = date_.getFullYear();
+				let month = date_.getMonth()+1;
+				let day = date_.getDate();
+				if(month<10) month = "0"+month;
+				if(day<10) day = "0"+day;
+				
+				let hours = date_.getHours();
+				let mins = date_.getMinutes();
+				let secs = date_.getSeconds();
+				let msecs = date_.getMilliseconds();
+				if(hours<10) hours = "0"+hours;
+				if(mins<10) mins = "0"+mins;
+				if(secs<10) secs = "0"+secs;
+				if(msecs<10) secs = "0"+msecs;
+				return `${hours}:${mins}:${secs}`
+			},
+			
 			keydownBcFunc(res) {
 				let keyCode = res.keyCode
 				if(keyCode === 19 || keyCode === 38) {
@@ -152,6 +187,17 @@
 		bottom: 0;
 		background-color: rgba($color: blue, $alpha: .2);
 	}
+	
+	.timer{
+		position: fixed;
+		right: 20;
+		top: 10;
+		.timer-text{
+			color: #FFFFFF;
+			font-size: 16rpx;
+		}
+	}
+	
 	.list{
 		width: $width;
 		height: 26;
