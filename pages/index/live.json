@@ -1,6 +1,5 @@
 [
     {
-      "channelNum": 1,
       "channelName": "CCTV1",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226546/index.m3u8",
@@ -9,7 +8,6 @@
       ]
     },
     {
-      "channelNum": 2,
       "channelName": "CCTV2",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226642/index.m3u8",
@@ -18,7 +16,6 @@
       ]
     },
     {
-      "channelNum": 3,
       "channelName": "CCTV3",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226548/index.m3u8",
@@ -27,7 +24,6 @@
       ]
     },
     {
-      "channelNum": 4,
       "channelName": "CCTV4",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226584/index.m3u8",
@@ -36,7 +32,6 @@
       ]
     },
     {
-      "channelNum": 5,
       "channelName": "CCTV5",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226550/index.m3u8",
@@ -44,7 +39,6 @@
       ]
     },
     {
-      "channelNum": 6,
       "channelName": "CCTV5+",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226597/index.m3u8",
@@ -53,7 +47,6 @@
       ]
     },
     {
-      "channelNum": 7,
       "channelName": "CCTV6",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226601/index.m3u8",
@@ -62,7 +55,6 @@
       ]
     },
     {
-      "channelNum": 8,
       "channelName": "CCTV7",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226536/index.m3u8",
@@ -71,7 +63,6 @@
       ]
     },
     {
-      "channelNum": 9,
       "channelName": "CCTV8",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226603/index.m3u8",
@@ -80,7 +71,6 @@
       ]
     },
     {
-      "channelNum": 10,
       "channelName": "CCTV9",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226552/index.m3u8",
@@ -89,7 +79,6 @@
       ]
     },
     {
-      "channelNum": 11,
       "channelName": "CCTV10",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226589/index.m3u8",
@@ -98,7 +87,6 @@
       ]
     },
     {
-      "channelNum": 12,
       "channelName": "CCTV11",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226639/index.m3u8",
@@ -116,7 +104,6 @@
       ]
     },
     {
-      "channelNum": 14,
       "channelName": "CCTV13",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226580/index.m3u8",
@@ -134,7 +121,6 @@
       ]
     },
     {
-      "channelNum": 16,
       "channelName": "CCTV15",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226582/index.m3u8",
@@ -143,7 +129,6 @@
       ]
     },
     {
-      "channelNum": 17,
       "channelName": "CCTV17",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226610/index.m3u8",
@@ -152,7 +137,6 @@
       ]
     },
     {
-      "channelNum": 18,
       "channelName": "东南卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226588/index.m3u8",
@@ -160,7 +144,6 @@
       ]
     },
     {
-      "channelNum": 19,
       "channelName": "东方卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226554/index.m3u8",
@@ -169,7 +152,6 @@
       ]
     },
     {
-      "channelNum": 20,
       "channelName": "北京卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226544/index.m3u8",
@@ -178,7 +160,6 @@
       ]
     },
     {
-      "channelNum": 21,
       "channelName": "天津卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226613/index.m3u8",
@@ -187,7 +168,6 @@
       ]
     },
     {
-      "channelNum": 22,
       "channelName": "安徽卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226587/index.m3u8",
@@ -196,7 +176,6 @@
       ]
     },
     {
-      "channelNum": 23,
       "channelName": "山东卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226609/index.m3u8",
@@ -205,7 +184,6 @@
       ]
     },
     {
-      "channelNum": 24,
       "channelName": "广东卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226556/index.m3u8",
@@ -214,7 +192,6 @@
       ]
     },
     {
-      "channelNum": 25,
       "channelName": "江苏卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226558/index.m3u8",
@@ -223,7 +200,6 @@
       ]
     },
     {
-      "channelNum": 26,
       "channelName": "江西卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226607/index.m3u8",
@@ -239,7 +215,6 @@
       ]
     },
     {
-      "channelNum": 28,
       "channelName": "深圳卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226611/index.m3u8",
@@ -248,7 +223,6 @@
       ]
     },
     {
-      "channelNum": 29,
       "channelName": "湖北卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226615/index.m3u8",
@@ -257,7 +231,6 @@
       ]
     },
     {
-      "channelNum": 30,
       "channelName": "湖南卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226605/index.m3u8",
@@ -275,7 +248,6 @@
       ]
     },
     {
-      "channelNum": 32,
       "channelName": "重庆卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226586/index.m3u8",
@@ -284,7 +256,6 @@
       ]
     },
     {
-      "channelNum": 33,
       "channelName": "黑龙江卫视",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226564/index.m3u8",
@@ -293,329 +264,282 @@
       ]
     },
     {
-      "channelNum": 34,
       "channelName": "甘肃卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/gstv.m3u8"
       ]
     },
     {
-      "channelNum": 35,
       "channelName": "广西卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/gxtv.m3u8"
       ]
     },
     {
-      "channelNum": 36,
       "channelName": "河北卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/hebtv.m3u8"
       ]
     },
     {
-      "channelNum": 37,
       "channelName": "河南卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/hnhd.m3u8"
       ]
     },
     {
-      "channelNum": 38,
       "channelName": "吉林卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/jltv.m3u8"
       ]
     },
     {
-      "channelNum": 39,
       "channelName": "内蒙古卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/nmtv.m3u8"
       ]
     },
     {
-      "channelNum": 40,
       "channelName": "宁夏卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/nxtv.m3u8"
       ]
     },
     {
-      "channelNum": 41,
       "channelName": "山西卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/sxrtv.m3u8"
       ]
     },
     {
-      "channelNum": 42,
       "channelName": "陕西卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/sxtv.m3u8"
       ]
     },
     {
-      "channelNum": 43,
       "channelName": "四川卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/sctv.m3u8"
       ]
     },
     {
-      "channelNum": 44,
       "channelName": "新疆卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/xjtv.m3u8"
       ]
     },
     {
-      "channelNum": 45,
       "channelName": "云南卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/yntv.m3u8"
       ]
     },
     {
-      "channelNum": 46,
       "channelName": "青海卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/qhtv.m3u8"
       ]
     },
     {
-      "channelNum": 47,
       "channelName": "兵团卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/bttv.m3u8"
       ]
     },
     {
-      "channelNum": 48,
       "channelName": "厦门卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/xmtv.m3u8"
       ]
     },
     {
-      "channelNum": 49,
       "channelName": "西藏卫视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/xztv.m3u8"
       ]
     },
     {
-      "channelNum": 50,
       "channelName": "CHC高清电影",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/chchd.m3u8"
       ]
     },
     {
-      "channelNum": 51,
       "channelName": "北京文艺",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/btv2hd.m3u8"
       ]
     },
     {
-      "channelNum": 52,
       "channelName": "北京科教",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/btv3.m3u8"
       ]
     },
     {
-      "channelNum": 53,
       "channelName": "北京影视",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/btv4.m3u8"
       ]
     },
     {
-      "channelNum": 54,
       "channelName": "北京财经",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/btv5.m3u8"
       ]
     },
     {
-      "channelNum": 55,
       "channelName": "北京生活",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/btv7.m3u8"
       ]
     },
     {
-      "channelNum": 56,
       "channelName": "北京青年",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/btv8.m3u8"
       ]
     },
     {
-      "channelNum": 57,
       "channelName": "北京新闻",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/btv9.m3u8"
       ]
     },
     {
-      "channelNum": 58,
       "channelName": "金鹰纪实",
       "channelUrls": [
         "http://ivi.bupt.edu.cn/hls/gedocu.m3u8"
       ]
     },
     {
-      "channelNum": 59,
       "channelName": "上海纪实人文",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226727/index.m3u8"
       ]
     },
     {
-      "channelNum": 60,
       "channelName": "北京冬奥纪实",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226668/index.m3u8"
       ]
     },
     {
-      "channelNum": 61,
       "channelName": "NewTV中国功夫",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226576/index.m3u8"
       ]
     },
     {
-      "channelNum": 62,
       "channelName": "NewTV军事评论",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226627/index.m3u8"
       ]
     },
     {
-      "channelNum": 63,
       "channelName": "NewTV军旅剧场",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226570/index.m3u8"
       ]
     },
     {
-      "channelNum": 64,
       "channelName": "NewTV农业致富",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226572/index.m3u8"
       ]
     },
     {
-      "channelNum": 65,
       "channelName": "NewTV动作电影",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226540/index.m3u8"
       ]
     },
     {
-      "channelNum": 66,
       "channelName": "NewTV古装剧场",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226595/index.m3u8"
       ]
     },
     {
-      "channelNum": 67,
       "channelName": "NewTV家庭剧场",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226621/index.m3u8"
       ]
     },
     {
-      "channelNum": 68,
       "channelName": "NewTV怡伴健康",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226631/index.m3u8"
       ]
     },
     {
-      "channelNum": 69,
       "channelName": "NewTV惊悚悬疑",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226568/index.m3u8"
       ]
     },
     {
-      "channelNum": 70,
       "channelName": "NewTV明星大片",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226635/index.m3u8"
       ]
     },
     {
-      "channelNum": 71,
       "channelName": "NewTV武搏世界",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226637/index.m3u8"
       ]
     },
     {
-      "channelNum": 72,
       "channelName": "NewTV海外剧场",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226665/index.m3u8"
       ]
     },
     {
-      "channelNum": 73,
       "channelName": "NewTV潮妈辣婆",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226542/index.m3u8"
       ]
     },
     {
-      "channelNum": 74,
       "channelName": "NewTV炫舞未来",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226560/index.m3u8"
       ]
     },
     {
-      "channelNum": 75,
       "channelName": "NewTV爱情喜剧",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226532/index.m3u8"
       ]
     },
     {
-      "channelNum": 76,
       "channelName": "NewTV精品体育",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226625/index.m3u8"
       ]
     },
     {
-      "channelNum": 77,
       "channelName": "NewTV精品大剧",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226617/index.m3u8"
       ]
     },
     {
-      "channelNum": 78,
       "channelName": "NewTV精品纪录",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226623/index.m3u8"
       ]
     },
     {
-      "channelNum": 79,
       "channelName": "NewTV金牌综艺",
       "channelUrls": [
         "http://39.135.33.12/PLTV/77777777/224/3221226574/index.m3u8"
       ]
     },
     {
-      "channelNum": 80,
       "channelName": "黑莓动画",
       "channelUrls": [
         "http://39.134.66.66/PLTV/88888888/224/3221225529/index.m3u8",
@@ -623,7 +547,6 @@
       ]
     },
     {
-      "channelNum": 81,
       "channelName": "黑莓电影",
       "channelUrls": [
         "http://39.134.66.66/PLTV/88888888/224/3221225523/index.m3u8",
@@ -631,7 +554,6 @@
       ]
     },
     {
-      "channelNum": 82,
       "channelName": "黑莓电竞",
       "channelUrls": [
         "http://39.134.66.66/PLTV/88888888/224/3221225559/index.m3u8",
