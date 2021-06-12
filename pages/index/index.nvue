@@ -7,11 +7,20 @@
 			<text class="timer-text">{{timer}}</text>
 		</div>
 		
-		<scroll-view class="nav-left" @scroll.prevent :scroll-top="scrollTop" ref="list" id="scroller" v-if="showModal" scroll-y="true" >
+		<scroll-view class="nav-left" @scroll.prevent @scroll="scroll" :scroll-top="scrollTop" ref="list" id="scroller" v-if="showModal" scroll-y="true" >
 			<view class="list" @click="select(index)" :class="selectOldIndex === index? 'active' : ''" v-for="item,index in liveData" :key="index">
 				<text class="text">{{item.channelName}}</text>
 			</view>
 		</scroll-view>
+		
+		<div class="select-url" v-if="showUrlModal">
+			<div style="margin-bottom: 10rpx;">
+				<text style="color: #FFFFFF;font-size: 16rpx;">切换直播源</text>
+			</div>
+			<div :class="index === selectUrlIndex ? 'active': ''" class="select-url-item" v-for="(item,index) in videoSrcData" :key="item">
+				<text class="select-url-text">直播源{{index + 1}}</text>
+			</div>
+		</div>
 		
 		<!-- <list class="nav-left" ref="list" id="scroller" v-if="showModal" bounce="false">
 			<cell class="list" ref="cell" @click="select(index)" :class="selectOldIndex === index? 'active' : ''" v-for="item,index in liveData" :key="'index' +index">
@@ -31,11 +40,19 @@
 		data() {
 			return {
 				scrollTop:0,
+				old: {
+					scrollTop: 0
+				},
 				selectIndex: INIT_INDEX,
 				selectOldIndex: INIT_INDEX,
+				
+				selectUrlIndex: 0,
 				videoSrc: liveData[INIT_INDEX].channelUrls[0],
+				videoSrcData: liveData[INIT_INDEX].channelUrls,
+				
 				liveData,
 				showModal: false,
+				showUrlModal: false,
 				timer: Date.now()
 			}
 		},
@@ -89,6 +106,17 @@
 				let keyCode = res.keyCode
 				if(keyCode === 19 || keyCode === 38) {
 					// KeyUp
+					// 切换电视台直播源
+					if(this.showUrlModal) {
+						if(this.selectUrlIndex <= 0) {
+							this.selectUrlIndex = this.videoSrcData.length
+						}
+						this.selectUrlIndex -= 1
+						
+						return
+					}
+					
+					// 切换电视台
 					if(this.selectOldIndex <= 0) {
 						this.selectOldIndex = liveData.length
 					}
@@ -102,6 +130,17 @@
 					
 				}else if(keyCode === 20 || keyCode === 40) {
 					// KeyDown
+					
+					// 切换电视台直播源
+					if(this.showUrlModal) {
+						if(this.selectUrlIndex >= this.videoSrcData.length - 1) {
+							this.selectUrlIndex = -1
+						}
+						this.selectUrlIndex += 1
+						return
+					}
+					
+					// 切换电视台
 					if(this.selectOldIndex >= liveData.length - 1) {
 						this.selectOldIndex = -1
 					}
@@ -117,11 +156,25 @@
 					// KeyLeft
 				}else if(keyCode === 22 || keyCode === 39) {
 					// KeyRight
+					if(!this.showUrlModal) {
+						this.showUrlModal = true
+					}
+					
 				}else if(keyCode === 23 || keyCode === 13 || keyCode === 66) {
 					// KeyEnter
+					
+					if(this.showUrlModal) {
+						this.selectUrl(this.selectUrlIndex)
+						return
+					}
+					
 					if(this.showModal) {
+						if(this.selectIndex === this.selectOldIndex) {
+							this.showModal = false
+							return
+						}
+						
 						this.select(this.selectOldIndex)
-						this.showModal = false
 					}else {
 						this.showModal = true
 					}
@@ -131,32 +184,52 @@
 					this.showModal = false
 					this.selectOldIndex = this.selectIndex
 					
+					this.showUrlModal = false
+					
 				}
 			},
 			
+			scroll(e) {
+				this.old.scrollTop = e.detail.scrollTop
+			},
+			
 			setScrollTop() {
-				const LINE_HEIGHT = 26
+				this.scrollTop = this.old.scrollTop
+				const LINE_HEIGHT = 32
 				const NUMBER = this.height / LINE_HEIGHT
 				
-				setTimeout(() => {
-					this.scrollTop = this.selectOldIndex * LINE_HEIGHT - (Math.floor(NUMBER / 2) * LINE_HEIGHT)
-					
-					// dom.scrollToElement(this.$refs.cell[10], {
-					// 	offset: 1
-					// })
-					
-				},20)
+				this.$nextTick(() =>{
+					setTimeout(() => {
+						this.scrollTop = this.selectOldIndex * LINE_HEIGHT - (Math.floor(NUMBER / 2) * LINE_HEIGHT)
+						
+						// dom.scrollToElement(this.$refs.cell[10], {
+						// 	offset: 1
+						// })
+						
+					},20)
+				})
 			},
 			playVideo() {
 				this.videoContext = uni.createVideoContext("video", this)
 				console.log(this.videoContext)
 				this.videoContext.play()
 			},
+			// 切换电视台
 			select(index) {
 				this.selectIndex = index
 				this.selectOldIndex = index
+				this.selectUrlIndex = 0 //重置直播源为第一个
 				this.videoSrc = liveData[index].channelUrls[0]
+				this.videoSrcData = liveData[index].channelUrls
 				this.showModal = false
+			},
+			// 切换电视台直播源
+			selectUrl(index) {
+				this.selectOldIndex = index
+				this.videoSrc = liveData[this.selectIndex].channelUrls[index]
+				this.showUrlModal = false
+				
+				this.selectOldIndex = this.selectIndex
 			}
 		},
 		watch:{
@@ -179,13 +252,51 @@
 
 <style lang="scss">
 	$width: 160rpx;
+	$active-color: #3385ff;
+	
 	.nav-left{
 		position: fixed;
 		left: 0;
 		top: 0;
 		width: $width;
 		bottom: 0;
-		background-color: rgba($color: blue, $alpha: .2);
+		background-color: rgba($color: $active-color, $alpha: .2);
+	}
+	
+	
+	.select-url{
+		position: fixed;
+		right: 0;
+		top: 0;
+		width: $width;
+		align-items: center;
+		justify-content: center;
+		bottom: 0;
+		background-color: rgba($color: $active-color, $alpha: .2);
+		.active{
+			border-color: $active-color;
+			border-width: 1;
+			background-color: rgba($color: #000000, $alpha: 0);
+			.select-url-text{
+				color: $active-color;
+			}
+		}
+	}
+	
+	.select-url-item{
+		width: 100rpx;
+		border-style: solid;
+		align-items: center;
+		justify-content: center;
+		height: 40;
+		border-radius: 40;
+		margin-bottom: 10rpx;
+		border-width: 1;
+		border-color: #FFFFFF;
+	}
+	.select-url-text{
+		font-size: 16rpx;
+		color: #FFFFFF;
 	}
 	
 	.timer{
@@ -200,12 +311,12 @@
 	
 	.list{
 		width: $width;
-		height: 26;
+		height: 32;
 		align-items: center;
 		justify-content: center;
 	}
 	.active{
-		background-color: blue;
+		background-color: $active-color;
 	}
 	
 	.text{
