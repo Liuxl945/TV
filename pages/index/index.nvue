@@ -17,7 +17,7 @@
 			<div style="margin-bottom: 10rpx;">
 				<text style="color: #FFFFFF;font-size: 16rpx;">切换直播源</text>
 			</div>
-			<div :class="index === selectUrlIndex ? 'active': ''" class="select-url-item" v-for="(item,index) in videoSrcData" :key="item">
+			<div @click="selectUrl(index)" :class="index === selectUrlIndex ? 'active': ''" class="select-url-item" v-for="(item,index) in videoSrcData" :key="item">
 				<text class="select-url-text">直播源{{index + 1}}</text>
 			</div>
 		</div>
@@ -156,7 +156,7 @@
 					// KeyLeft
 				}else if(keyCode === 22 || keyCode === 39) {
 					// KeyRight
-					if(!this.showUrlModal) {
+					if(!this.showUrlModal && !this.showModal) {
 						this.showUrlModal = true
 					}
 					
@@ -225,7 +225,7 @@
 			},
 			// 切换电视台直播源
 			selectUrl(index) {
-				this.selectOldIndex = index
+				this.selectUrlIndex = index
 				this.videoSrc = liveData[this.selectIndex].channelUrls[index]
 				this.showUrlModal = false
 				
