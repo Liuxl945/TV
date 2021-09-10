@@ -1,10 +1,12 @@
 const fs = require("fs")
 
-let data = fs.readFileSync("./国内地方台202104.m3u")
+let data = fs.readFileSync("./国内地方台202110.m3u")
 let oldJson = JSON.parse(fs.readFileSync("./live.json").toString())
 
 
 let arr = data.toString().split(/\n/)
+
+
 
 let newArr = []
 
