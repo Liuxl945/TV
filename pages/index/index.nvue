@@ -31,7 +31,7 @@
 </template>
 
 <script>
-	import liveData from "./live.json"
+	import liveData from "./live-20220517.json"
 	
 	const INIT_INDEX = uni.getStorageSync("selectIndex") || 0
 	// const dom = uni.requireNativePlugin("dom")
